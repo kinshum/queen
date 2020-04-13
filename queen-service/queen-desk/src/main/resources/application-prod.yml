@@ -1,0 +1,10 @@
+#服务器端口
+server:
+  port: 8103
+
+#数据源配置
+spring:
+  datasource:
+    url: ${queen.datasource.prod.url}
+    username: ${queen.datasource.prod.username}
+    password: ${queen.datasource.prod.password}

@@ -1,0 +1,28 @@
+#服务器端口
+server:
+  port: 8200
+
+#数据源配置
+#spring:
+#  datasource:
+#    url: ${queen.datasource.test.url}
+#    username: ${queen.datasource.test.username}
+#    password: ${queen.datasource.test.password}
+
+spring:
+  #排除DruidDataSourceAutoConfigure
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  datasource:
+    dynamic:
+      #设置默认的数据源或者数据源组,默认值即为master
+      primary: master
+      datasource:
+        master:
+          url: ${queen.datasource.demo.master.url}
+          username: ${queen.datasource.demo.master.username}
+          password: ${queen.datasource.demo.master.password}
+        slave:
+          url: ${queen.datasource.demo.slave.url}
+          username: ${queen.datasource.demo.slave.username}
+          password: ${queen.datasource.demo.slave.password}
