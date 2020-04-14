@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+
 #使用说明，用来提示输入参数
 usage() {
 	echo "Usage: sh 执行脚本.sh [port|mount|base|modules|rm|rmiNoneTag|stop_base|stop_modules]"

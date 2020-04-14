@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 APP_NAME=app.jar
 
 #使用说明，用来提示输入参数
