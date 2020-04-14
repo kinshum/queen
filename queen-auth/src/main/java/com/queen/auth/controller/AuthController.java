@@ -18,6 +18,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +35,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @AllArgsConstructor
 @Api(value = "用户授权认证", tags = "授权接口")
+@Slf4j
 public class AuthController {
 
 	private RedisUtil redisUtil;
@@ -72,6 +74,8 @@ public class AuthController {
 		String verCode = specCaptcha.text().toLowerCase();
 		String key = UUID.randomUUID().toString();
 		// 存入redis并设置过期时间为30分钟
+		redisUtil.set("queen_test","queen_test_hello!!!");
+		log.info("redis_key 测试--{}",redisUtil.get("queen_test"));
 		redisUtil.set(CacheNames.CAPTCHA_KEY + key, verCode, 30L, TimeUnit.MINUTES);
 		// 将key和base64返回给前端
 		return R.data(Kv.init().set("key", key).set("image", specCaptcha.toBase64()));
