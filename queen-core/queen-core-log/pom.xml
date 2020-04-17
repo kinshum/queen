@@ -36,6 +36,15 @@
             <artifactId>mybatis-plus</artifactId>
             <version>${mybatis.plus.version}</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash.version}</version>
+        </dependency>
+
+
     </dependencies>
 
 </project>

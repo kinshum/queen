@@ -34,6 +34,8 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 
         <docker.plugin.version>1.2.0</docker.plugin.version>
+        <logstash.version>5.1</logstash.version>
+
     </properties>
 
 

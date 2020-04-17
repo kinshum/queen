@@ -5,6 +5,7 @@ import com.queen.auth.granter.TokenGranterBuilder;
 import com.queen.auth.granter.TokenParameter;
 import com.queen.auth.utils.TokenUtil;
 import com.queen.common.cache.CacheNames;
+import com.queen.core.log.annotation.ApiLog;
 import com.queen.core.secure.AuthInfo;
 import com.queen.core.tool.api.R;
 import com.queen.core.tool.support.Kv;
@@ -68,6 +69,7 @@ public class AuthController {
 		return R.data(TokenUtil.createAuthInfo(userInfo));
 	}
 
+	@ApiLog("获取验证码")
 	@GetMapping("/captcha")
 	public R<Kv> captcha() {
 		SpecCaptcha specCaptcha = new SpecCaptcha(130, 48, 5);
