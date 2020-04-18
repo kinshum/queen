@@ -59,6 +59,23 @@ public interface LauncherConstant {
 	 */
 	String ZIPKIN_TEST_ADDR = "http://172.30.0.58:9411";
 
+
+	/**
+	 * elk dev 地址
+	 */
+	String ELK_DEV_ADDR = "127.0.0.1:9000";
+
+	/**
+	 * elk prod 地址
+	 */
+	String ELK_PROD_ADDR = "172.30.0.58:9000";
+
+	/**
+	 * elk test 地址
+	 */
+	String ELK_TEST_ADDR = "172.30.0.58:9000";
+
+
 	/**
 	 * 动态获取nacos地址
 	 *
@@ -111,4 +128,20 @@ public interface LauncherConstant {
 	}
 
 
+	/**
+	 * 动态获取elk地址
+	 *
+	 * @param profile 环境变量
+	 * @return addr
+	 */
+	static String elkAddr(String profile) {
+		switch (profile) {
+			case (AppConstant.PROD_CODE):
+				return ELK_PROD_ADDR;
+			case (AppConstant.TEST_CODE):
+				return ELK_TEST_ADDR;
+			default:
+				return ELK_DEV_ADDR;
+		}
+	}
 }

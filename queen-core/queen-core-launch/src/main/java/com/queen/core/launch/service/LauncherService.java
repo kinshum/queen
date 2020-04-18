@@ -10,14 +10,18 @@ import org.springframework.core.Ordered;
  */
 public interface LauncherService extends Ordered, Comparable<LauncherService>  {
 
+
+
 	/**
 	 * 启动时 处理 SpringApplicationBuilder
 	 *
-	 * @param builder SpringApplicationBuilder
-	 * @param appName SpringApplicationAppName
-	 * @param profile SpringApplicationProfile
+	 * @param builder    SpringApplicationBuilder
+	 * @param appName    SpringApplicationAppName
+	 * @param profile    SpringApplicationProfile
+	 * @param isLocalDev SpringApplicationIsLocalDev
 	 */
-	void launcher(SpringApplicationBuilder builder, String appName, String profile);
+	void launcher(SpringApplicationBuilder builder, String appName, String profile, boolean isLocalDev);
+
 
 	/**
 	 * 获取排列顺序

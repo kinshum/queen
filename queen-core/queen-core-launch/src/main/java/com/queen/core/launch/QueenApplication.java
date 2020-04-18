@@ -90,7 +90,7 @@ public class QueenApplication {
 		List<LauncherService> launcherList = new ArrayList<>();
 		ServiceLoader.load(LauncherService.class).forEach(launcherList::add);
 		launcherList.stream().sorted(Comparator.comparing(LauncherService::getOrder)).collect(Collectors.toList())
-			.forEach(launcherService -> launcherService.launcher(builder, appName, profile));
+			.forEach(launcherService -> launcherService.launcher(builder, appName, profile,isLocalDev()));
 		return builder;
 	}
 

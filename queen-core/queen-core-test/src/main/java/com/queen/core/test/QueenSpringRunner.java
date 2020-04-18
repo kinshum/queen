@@ -57,7 +57,7 @@ public class QueenSpringRunner extends SpringJUnit4ClassRunner {
 			SpringApplicationBuilder builder = new SpringApplicationBuilder(clazz);
 			ServiceLoader.load(LauncherService.class).forEach(launcherList::add);
 			launcherList.stream().sorted(Comparator.comparing(LauncherService::getOrder)).collect(Collectors.toList())
-				.forEach(launcherService -> launcherService.launcher(builder, appName, profile));
+				.forEach(launcherService -> launcherService.launcher(builder, appName, profile,QueenApplication.isLocalDev()));
 		}
 		System.err.println(String.format("---[junit.test]:[%s]---启动中，读取到的环境变量:[%s]", appName, profile));
 	}

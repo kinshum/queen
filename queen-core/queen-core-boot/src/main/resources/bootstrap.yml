@@ -61,11 +61,6 @@ spring:
       #max-lifetime: 1800000
       #minimum-idle: 1
 
-
-#配置日志地址
-logging:
-  config: classpath:log/logback_${queen.env}.xml
-
 # mybatis
 mybatis-plus:
   mapper-locations: classpath:com/queen/**/mapper/*Mapper.xml

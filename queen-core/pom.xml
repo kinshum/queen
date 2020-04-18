@@ -51,6 +51,7 @@
         <module>queen-core-log</module>
         <module>queen-core-cloud</module>
         <module>queen-core-boot</module>
+        <module>queen-core-auto</module>
     </modules>
 
 
