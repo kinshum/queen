@@ -1,7 +1,6 @@
 package com.queen.system.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.queen.core.boot.ctrl.QueenController;
 import com.queen.core.tool.api.R;
 import com.queen.core.tool.utils.Func;
@@ -36,7 +35,6 @@ public class ParamController extends QueenController {
 	 * 详情
 	 */
 	@GetMapping("/detail")
-	@ApiOperationSupport(order = 1)
 	@ApiOperation(value = "详情", notes = "传入param")
 	public R<Param> detail(Param param) {
 		Param detail = paramService.getOne(Condition.getQueryWrapper(param));
@@ -52,7 +50,6 @@ public class ParamController extends QueenController {
 		@ApiImplicitParam(name = "paramKey", value = "参数键名", paramType = "query", dataType = "string"),
 		@ApiImplicitParam(name = "paramValue", value = "参数键值", paramType = "query", dataType = "string")
 	})
-	@ApiOperationSupport(order = 2)
 	@ApiOperation(value = "分页", notes = "传入param")
 	public R<IPage<Param>> list(@ApiIgnore @RequestParam Map<String, Object> param, Query query) {
 		IPage<Param> pages = paramService.page(Condition.getPage(query), Condition.getQueryWrapper(param, Param.class));
@@ -63,7 +60,6 @@ public class ParamController extends QueenController {
 	 * 新增或修改
 	 */
 	@PostMapping("/submit")
-	@ApiOperationSupport(order = 3)
 	@ApiOperation(value = "新增或修改", notes = "传入param")
 	public R submit(@Valid @RequestBody Param param) {
 		return R.status(paramService.saveOrUpdate(param));
@@ -74,10 +70,9 @@ public class ParamController extends QueenController {
 	 * 删除
 	 */
 	@PostMapping("/remove")
-	@ApiOperationSupport(order = 4)
 	@ApiOperation(value = "逻辑删除", notes = "传入ids")
 	public R remove(@ApiParam(value = "主键集合", required = true) @RequestParam String ids) {
-		return R.status(paramService.deleteLogic(Func.toIntList(ids)));
+		return R.status(paramService.deleteLogic(Func.toLongList(ids)));
 	}
 
 

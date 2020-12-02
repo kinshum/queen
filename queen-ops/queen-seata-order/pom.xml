@@ -21,14 +21,14 @@
         </dependency>
         <dependency>
             <groupId>com.queen</groupId>
-            <artifactId>queen-core-transaction</artifactId>
+            <artifactId>queen-starter-transaction</artifactId>
             <version>${queen.tool.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-common</artifactId>
-            <version>${queen.tool.version}</version>
+            <version>${queen.project.version}</version>
         </dependency>
     </dependencies>
 

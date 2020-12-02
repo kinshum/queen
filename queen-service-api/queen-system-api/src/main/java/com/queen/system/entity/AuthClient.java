@@ -21,12 +21,7 @@ public class AuthClient extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * 主键id
-	 */
-	@TableId(value = "id", type = IdType.AUTO)
-	@ApiModelProperty(value = "主键id")
-	private Integer id;
+
 
 	/**
 	 * 客户端id

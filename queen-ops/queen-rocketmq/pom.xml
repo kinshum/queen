@@ -19,22 +19,19 @@
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-common</artifactId>
-            <version>${queen.tool.version}</version>
+            <version>${queen.project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-core-launch</artifactId>
-            <version>${queen.tool.version}</version>
         </dependency>
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-core-tool</artifactId>
-            <version>${queen.tool.version}</version>
         </dependency>
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-core-cloud</artifactId>
-            <version>${queen.tool.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.queen</groupId>

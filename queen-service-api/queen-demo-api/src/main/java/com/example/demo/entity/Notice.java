@@ -23,12 +23,6 @@ public class Notice extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * 主键id
-	 */
-	@TableId(value = "id", type = IdType.AUTO)
-	@ApiModelProperty(value = "主键id")
-	private Integer id;
 
 	/**
 	 * 标题

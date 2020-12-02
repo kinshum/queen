@@ -21,7 +21,7 @@
         </dependency>
         <dependency>
             <groupId>com.queen</groupId>
-            <artifactId>queen-core-swagger</artifactId>
+            <artifactId>queen-starter-swagger</artifactId>
             <version>${queen.tool.version}</version>
         </dependency>
         <dependency>

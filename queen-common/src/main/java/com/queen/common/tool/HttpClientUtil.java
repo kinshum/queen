@@ -1,7 +1,6 @@
 package com.queen.common.tool;
 
 
-import io.micrometer.core.instrument.util.StringUtils;
 import org.apache.commons.codec.Charsets;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
@@ -18,6 +17,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -161,7 +161,7 @@ public class HttpClientUtil {
         HttpPost httpPost = new HttpPost(url);
         httpPost.setConfig(requestConfig);
         // 设置请求头和请求参数
-        if (StringUtils.isNotEmpty(jsonParam)) {
+        if (!StringUtils.isEmpty(jsonParam)) {
             StringEntity entity = new StringEntity(jsonParam, "utf-8");
             entity.setContentEncoding("UTF-8");
             entity.setContentType("application/json");

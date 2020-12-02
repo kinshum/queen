@@ -17,7 +17,6 @@
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-core-launch</artifactId>
-            <version>${queen.tool.version}</version>
         </dependency>
         <dependency>
             <groupId>net.dreamlu</groupId>
@@ -25,14 +24,12 @@
             <version>${mica.auto.version}</version>
             <scope>provided</scope>
         </dependency>
-
         <!--httpclient-->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.6</version>
         </dependency>
-
     </dependencies>
 
     <build>

@@ -88,7 +88,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
 		}
 		List<MenuDTO> routes = baseMapper.authRoutes(Func.toIntList(user.getRoleId()));
 		List<Kv> list = new ArrayList<>();
-		routes.forEach(route -> list.add(Kv.init().set(route.getPath(), Kv.init().set("authority", Func.toStrArray(route.getAlias())))));
+		routes.forEach(route -> list.add(Kv.create().set(route.getPath(), Kv.create().set("authority", Func.toStrArray(route.getAlias())))));
 		return list;
 	}
 

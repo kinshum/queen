@@ -1,7 +1,6 @@
 package com.queen.system.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.queen.core.boot.ctrl.QueenController;
 import com.queen.core.secure.QueenUser;
 import com.queen.core.tool.api.R;
@@ -42,7 +41,6 @@ public class DeptController extends QueenController {
 	 * 详情
 	 */
 	@GetMapping("/detail")
-	@ApiOperationSupport(order = 1)
 	@ApiOperation(value = "详情", notes = "传入dept")
 	public R<DeptVO> detail(Dept dept) {
 		Dept detail = deptService.getOne(Condition.getQueryWrapper(dept));
@@ -57,7 +55,6 @@ public class DeptController extends QueenController {
 		@ApiImplicitParam(name = "deptName", value = "部门名称", paramType = "query", dataType = "string"),
 		@ApiImplicitParam(name = "fullName", value = "部门全称", paramType = "query", dataType = "string")
 	})
-	@ApiOperationSupport(order = 2)
 	@ApiOperation(value = "列表", notes = "传入dept")
 	public R<List<INode>> list(@ApiIgnore @RequestParam Map<String, Object> dept, QueenUser queenUser) {
 		QueryWrapper<Dept> queryWrapper = Condition.getQueryWrapper(dept, Dept.class);
@@ -71,7 +68,6 @@ public class DeptController extends QueenController {
 	 * @return
 	 */
 	@GetMapping("/tree")
-	@ApiOperationSupport(order = 3)
 	@ApiOperation(value = "树形结构", notes = "树形结构")
 	public R<List<DeptVO>> tree(String tenantId, QueenUser queenUser) {
 		List<DeptVO> tree = deptService.tree(Func.toStr(tenantId, queenUser.getTenantId()));
@@ -82,7 +78,6 @@ public class DeptController extends QueenController {
 	 * 新增或修改
 	 */
 	@PostMapping("/submit")
-	@ApiOperationSupport(order = 4)
 	@ApiOperation(value = "新增或修改", notes = "传入dept")
 	public R submit(@Valid @RequestBody Dept dept, QueenUser user) {
 		if (Func.isEmpty(dept.getId())) {
@@ -95,7 +90,6 @@ public class DeptController extends QueenController {
 	 * 删除
 	 */
 	@PostMapping("/remove")
-	@ApiOperationSupport(order = 5)
 	@ApiOperation(value = "删除", notes = "传入ids")
 	public R remove(@ApiParam(value = "主键集合", required = true) @RequestParam String ids) {
 		return R.status(deptService.removeByIds(Func.toIntList(ids)));

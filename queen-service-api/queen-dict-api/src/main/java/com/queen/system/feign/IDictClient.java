@@ -1,6 +1,5 @@
 package com.queen.system.feign;
 
-
 import com.queen.core.launch.constant.AppConstant;
 import com.queen.core.tool.api.R;
 import com.queen.system.entity.Dict;

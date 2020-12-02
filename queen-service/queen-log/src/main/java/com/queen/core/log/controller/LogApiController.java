@@ -1,6 +1,5 @@
 package com.queen.core.log.controller;
 
-
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.queen.core.log.service.ILogApiService;

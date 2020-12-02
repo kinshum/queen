@@ -1,7 +1,6 @@
 package com.queen.system.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.queen.core.boot.ctrl.QueenController;
 import com.queen.core.secure.QueenUser;
 import com.queen.core.tool.api.R;
@@ -41,7 +40,6 @@ public class RoleController extends QueenController {
 	 * 详情
 	 */
 	@GetMapping("/detail")
-	@ApiOperationSupport(order = 1)
 	@ApiOperation(value = "详情", notes = "传入role")
 	public R<RoleVO> detail(Role role) {
 		Role detail = roleService.getOne(Condition.getQueryWrapper(role));
@@ -56,7 +54,6 @@ public class RoleController extends QueenController {
 		@ApiImplicitParam(name = "roleName", value = "参数名称", paramType = "query", dataType = "string"),
 		@ApiImplicitParam(name = "roleAlias", value = "角色别名", paramType = "query", dataType = "string")
 	})
-	@ApiOperationSupport(order = 2)
 	@ApiOperation(value = "列表", notes = "传入role")
 	public R<List<INode>> list(@ApiIgnore @RequestParam Map<String, Object> role, QueenUser queenUser) {
 		QueryWrapper<Role> queryWrapper = Condition.getQueryWrapper(role, Role.class);
@@ -68,7 +65,6 @@ public class RoleController extends QueenController {
 	 * 获取角色树形结构
 	 */
 	@GetMapping("/tree")
-	@ApiOperationSupport(order = 3)
 	@ApiOperation(value = "树形结构", notes = "树形结构")
 	public R<List<RoleVO>> tree(String tenantId, QueenUser queenUser) {
 		List<RoleVO> tree = roleService.tree(Func.toStr(tenantId, queenUser.getTenantId()));
@@ -79,7 +75,6 @@ public class RoleController extends QueenController {
 	 * 新增或修改
 	 */
 	@PostMapping("/submit")
-	@ApiOperationSupport(order = 4)
 	@ApiOperation(value = "新增或修改", notes = "传入role")
 	public R submit(@Valid @RequestBody Role role, QueenUser user) {
 		if (Func.isEmpty(role.getId())) {
@@ -93,7 +88,6 @@ public class RoleController extends QueenController {
 	 * 删除
 	 */
 	@PostMapping("/remove")
-	@ApiOperationSupport(order = 5)
 	@ApiOperation(value = "删除", notes = "传入ids")
 	public R remove(@ApiParam(value = "主键集合", required = true) @RequestParam String ids) {
 		return R.status(roleService.removeByIds(Func.toIntList(ids)));
@@ -107,7 +101,6 @@ public class RoleController extends QueenController {
 	 * @return
 	 */
 	@PostMapping("/grant")
-	@ApiOperationSupport(order = 6)
 	@ApiOperation(value = "权限设置", notes = "传入roleId集合以及menuId集合")
 	public R grant(@ApiParam(value = "roleId集合", required = true) @RequestParam String roleIds,
 				   @ApiParam(value = "menuId集合", required = true) @RequestParam String menuIds) {

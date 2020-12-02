@@ -1,7 +1,5 @@
-
 package com.queen.system.controller;
 
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.queen.core.boot.ctrl.QueenController;
 import com.queen.core.secure.QueenUser;
 import com.queen.core.secure.annotation.PreAuth;
@@ -44,7 +42,6 @@ public class MenuController extends QueenController {
 	 */
 	@GetMapping("/detail")
 	@PreAuth(RoleConstant.HAS_ROLE_ADMIN)
-	@ApiOperationSupport(order = 1)
 	@ApiOperation(value = "详情", notes = "传入menu")
 	public R<MenuVO> detail(Menu menu) {
 		Menu detail = menuService.getOne(Condition.getQueryWrapper(menu));
@@ -60,7 +57,6 @@ public class MenuController extends QueenController {
 		@ApiImplicitParam(name = "name", value = "菜单名称", paramType = "query", dataType = "string")
 	})
 	@PreAuth(RoleConstant.HAS_ROLE_ADMIN)
-	@ApiOperationSupport(order = 2)
 	@ApiOperation(value = "列表", notes = "传入menu")
 	public R<List<MenuVO>> list(@ApiIgnore @RequestParam Map<String, Object> menu) {
 		@SuppressWarnings("unchecked")
@@ -73,7 +69,6 @@ public class MenuController extends QueenController {
 	 */
 	@PostMapping("/submit")
 	@PreAuth(RoleConstant.HAS_ROLE_ADMIN)
-	@ApiOperationSupport(order = 3)
 	@ApiOperation(value = "新增或修改", notes = "传入menu")
 	public R submit(@Valid @RequestBody Menu menu) {
 		return R.status(menuService.saveOrUpdate(menu));
@@ -85,7 +80,6 @@ public class MenuController extends QueenController {
 	 */
 	@PostMapping("/remove")
 	@PreAuth(RoleConstant.HAS_ROLE_ADMIN)
-	@ApiOperationSupport(order = 4)
 	@ApiOperation(value = "删除", notes = "传入ids")
 	public R remove(@ApiParam(value = "主键集合", required = true) @RequestParam String ids) {
 		return R.status(menuService.removeByIds(Func.toIntList(ids)));
@@ -95,7 +89,6 @@ public class MenuController extends QueenController {
 	 * 前端菜单数据
 	 */
 	@GetMapping("/routes")
-	@ApiOperationSupport(order = 5)
 	@ApiOperation(value = "前端菜单数据", notes = "前端菜单数据")
 	public R<List<MenuVO>> routes(QueenUser user) {
 		List<MenuVO> list = menuService.routes(user.getRoleId());
@@ -106,7 +99,6 @@ public class MenuController extends QueenController {
 	 * 前端按钮数据
 	 */
 	@GetMapping("/buttons")
-	@ApiOperationSupport(order = 6)
 	@ApiOperation(value = "前端按钮数据", notes = "前端按钮数据")
 	public R<List<MenuVO>> buttons(QueenUser user) {
 		List<MenuVO> list = menuService.buttons(user.getRoleId());
@@ -117,7 +109,6 @@ public class MenuController extends QueenController {
 	 * 获取菜单树形结构
 	 */
 	@GetMapping("/tree")
-	@ApiOperationSupport(order = 7)
 	@ApiOperation(value = "树形结构", notes = "树形结构")
 	public R<List<MenuVO>> tree() {
 		List<MenuVO> tree = menuService.tree();
@@ -128,7 +119,6 @@ public class MenuController extends QueenController {
 	 * 获取权限分配树形结构
 	 */
 	@GetMapping("/grant-tree")
-	@ApiOperationSupport(order = 8)
 	@ApiOperation(value = "权限分配树形结构", notes = "权限分配树形结构")
 	public R<List<MenuVO>> grantTree(QueenUser user) {
 		return R.data(menuService.grantTree(user));
@@ -138,7 +128,6 @@ public class MenuController extends QueenController {
 	 * 获取权限分配树形结构
 	 */
 	@GetMapping("/role-tree-keys")
-	@ApiOperationSupport(order = 9)
 	@ApiOperation(value = "角色所分配的树", notes = "角色所分配的树")
 	public R<List<String>> roleTreeKeys(String roleIds) {
 		return R.data(menuService.roleTreeKeys(roleIds));
@@ -148,7 +137,6 @@ public class MenuController extends QueenController {
 	 * 获取配置的角色权限
 	 */
 	@GetMapping("auth-routes")
-	@ApiOperationSupport(order = 10)
 	@ApiOperation(value = "菜单的角色权限")
 	public R<List<Kv>> authRoutes(QueenUser user) {
 		return R.data(menuService.authRoutes(user));

@@ -16,10 +16,7 @@ import lombok.EqualsAndHashCode;
 public class UserVO extends User {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * 主键ID
-	 */
-	private Integer id;
+
 
 	/**
 	 * 角色名

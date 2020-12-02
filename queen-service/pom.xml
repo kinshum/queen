@@ -29,6 +29,10 @@
             <artifactId>queen-common</artifactId>
             <version>${queen.project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.queen</groupId>
+            <artifactId>queen-starter-tenant</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

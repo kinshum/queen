@@ -15,16 +15,14 @@ import java.util.Properties;
 public class LauncherServiceImpl implements LauncherService {
 
 
-	@Override
-	public void launcher(SpringApplicationBuilder builder, String appName, String profile) {
-		Properties props = System.getProperties();
-		PropsUtil.setProperty(props,"spring.cloud.nacos.discovery.server-addr", LauncherConstant.nacosAddr(profile));
-		PropsUtil.setProperty(props,"spring.cloud.nacos.config.server-addr", LauncherConstant.nacosAddr(profile));
-		PropsUtil.setProperty(props,"spring.cloud.sentinel.transport.dashboard", LauncherConstant.sentinelAddr(profile));
-		PropsUtil.setProperty(props,"spring.zipkin.base-url", LauncherConstant.zipkinAddr(profile));
-		// 开启elk日志
-		PropsUtil.setProperty(props,"queen.log.elk.destination", LauncherConstant.elkAddr(profile));
-	}
-
-
+    @Override
+    public void launcher(SpringApplicationBuilder builder, String appName, String profile, boolean isLocalDev) {
+        Properties props = System.getProperties();
+        PropsUtil.setProperty(props, "spring.cloud.nacos.discovery.server-addr", LauncherConstant.nacosAddr(profile));
+        PropsUtil.setProperty(props, "spring.cloud.nacos.config.server-addr", LauncherConstant.nacosAddr(profile));
+        PropsUtil.setProperty(props, "spring.cloud.sentinel.transport.dashboard", LauncherConstant.sentinelAddr(profile));
+        PropsUtil.setProperty(props, "spring.zipkin.base-url", LauncherConstant.zipkinAddr(profile));
+        // 开启elk日志
+        //PropsUtil.setProperty(props,"queen.log.elk.destination", LauncherConstant.elkAddr(profile));
+    }
 }

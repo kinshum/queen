@@ -4,6 +4,7 @@ import com.queen.auth.enums.QueenUserEnum;
 import com.queen.auth.utils.TokenUtil;
 import com.queen.common.cache.CacheNames;
 import com.queen.core.log.exception.ServiceException;
+import com.queen.core.redis.cache.QueenRedis;
 import com.queen.core.tool.api.R;
 import com.queen.core.tool.utils.*;
 import com.queen.system.user.entity.UserInfo;
@@ -26,7 +27,7 @@ public class CaptchaTokenGranter implements ITokenGranter {
 	public static final String GRANT_TYPE = "captcha";
 
 	private IUserClient userClient;
-	private RedisUtil redisUtil;
+	private QueenRedis queenRedis;
 
 	@Override
 	public UserInfo grant(TokenParameter tokenParameter) {
@@ -35,7 +36,7 @@ public class CaptchaTokenGranter implements ITokenGranter {
 		String key = request.getHeader(TokenUtil.CAPTCHA_HEADER_KEY);
 		String code = request.getHeader(TokenUtil.CAPTCHA_HEADER_CODE);
 		// 获取验证码
-		String redisCode = String.valueOf(redisUtil.get(CacheNames.CAPTCHA_KEY + key));
+		String redisCode = String.valueOf(queenRedis.get(CacheNames.CAPTCHA_KEY + key));
 		// 判断验证码
 		if (code == null || !StringUtil.equalsIgnoreCase(redisCode, code)) {
 			throw new ServiceException(TokenUtil.CAPTCHA_NOT_CORRECT);

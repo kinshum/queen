@@ -6,11 +6,11 @@ import com.queen.auth.granter.TokenParameter;
 import com.queen.auth.utils.TokenUtil;
 import com.queen.common.cache.CacheNames;
 import com.queen.core.log.annotation.ApiLog;
+import com.queen.core.redis.cache.QueenRedis;
 import com.queen.core.secure.AuthInfo;
 import com.queen.core.tool.api.R;
 import com.queen.core.tool.support.Kv;
 import com.queen.core.tool.utils.Func;
-import com.queen.core.tool.utils.RedisUtil;
 import com.queen.core.tool.utils.WebUtil;
 import com.queen.system.user.entity.UserInfo;
 import com.wf.captcha.SpecCaptcha;
@@ -39,7 +39,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class AuthController {
 
-	private RedisUtil redisUtil;
+	private QueenRedis queenRedis;
 
 	@PostMapping("token")
 	@ApiOperation(value = "获取认证token", notes = "传入租户ID:tenantId,账号:account,密码:password")
@@ -76,11 +76,9 @@ public class AuthController {
 		String verCode = specCaptcha.text().toLowerCase();
 		String key = UUID.randomUUID().toString();
 		// 存入redis并设置过期时间为30分钟
-		redisUtil.set("queen_test","queen_test_hello!!!");
-		log.info("redis_key 测试--{}",redisUtil.get("queen_test"));
-		redisUtil.set(CacheNames.CAPTCHA_KEY + key, verCode, 30L, TimeUnit.MINUTES);
+		queenRedis.setEx(CacheNames.CAPTCHA_KEY + key, verCode, 1800L);
 		// 将key和base64返回给前端
-		return R.data(Kv.init().set("key", key).set("image", specCaptcha.toBase64()));
+		return R.data(Kv.create().set("key", key).set("image", specCaptcha.toBase64()));
 	}
 
 }

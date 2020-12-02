@@ -29,6 +29,7 @@
             <artifactId>queen-system-api</artifactId>
             <version>${queen.project.version}</version>
         </dependency>
+
         <!--Zipkin-->
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>

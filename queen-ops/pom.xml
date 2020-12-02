@@ -17,7 +17,6 @@
         <module>queen-seata-order</module>
         <module>queen-seata-storage</module>
         <module>queen-rocketmq</module>
-        <module>queen-schedule</module>
     </modules>
 
 

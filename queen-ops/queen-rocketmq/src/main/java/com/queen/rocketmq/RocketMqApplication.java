@@ -13,7 +13,7 @@ import org.springframework.cloud.client.SpringCloudApplication;
 public class RocketMqApplication {
 
     public static void main(String[] args) {
-        QueenApplication.run(AppConstant.APPLICATION_ROCKETMQ_NAME, RocketMqApplication.class, args);
+        QueenApplication.run("queen-rocketmq", RocketMqApplication.class, args);
     }
 
 }
