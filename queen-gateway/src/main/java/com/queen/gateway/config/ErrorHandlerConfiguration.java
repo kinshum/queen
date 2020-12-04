@@ -1,6 +1,5 @@
 package com.queen.gateway.config;
 
-
 import com.queen.gateway.handler.ErrorExceptionHandler;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;

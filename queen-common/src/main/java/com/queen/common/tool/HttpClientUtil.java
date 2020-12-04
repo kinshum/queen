@@ -1,6 +1,5 @@
 package com.queen.common.tool;
 
-
 import org.apache.commons.codec.Charsets;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;

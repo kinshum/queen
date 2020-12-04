@@ -1,6 +1,5 @@
 package com.queen.gateway;
 
-
 import com.queen.core.launch.QueenApplication;
 import com.queen.core.launch.constant.AppConstant;
 import org.springframework.cloud.client.SpringCloudApplication;
