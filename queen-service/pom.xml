@@ -20,7 +20,6 @@
         <module>queen-system</module>
         <module>queen-user</module>
         <module>queen-demo</module>
-        <module>queen-zero</module>
     </modules>
 
     <dependencies>
