@@ -1,4 +1,3 @@
-
 package com.queen.system.user.feign;
 
 import com.queen.core.launch.constant.AppConstant;

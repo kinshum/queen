@@ -1,12 +1,9 @@
 package com.queen.system.user.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModelProperty;
+import com.queen.core.mp.base.TenantEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.queen.core.mp.base.TenantEntity;
 
 import java.util.Date;
 

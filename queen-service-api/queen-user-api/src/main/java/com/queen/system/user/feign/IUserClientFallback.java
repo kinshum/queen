@@ -1,6 +1,5 @@
 package com.queen.system.user.feign;
 
-
 import com.queen.core.tool.api.R;
 import com.queen.system.user.entity.UserInfo;
 import org.springframework.stereotype.Component;

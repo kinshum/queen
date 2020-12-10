@@ -1,4 +1,3 @@
-
 package com.queen.system.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;

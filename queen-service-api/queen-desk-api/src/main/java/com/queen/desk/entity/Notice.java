@@ -1,12 +1,10 @@
 package com.queen.desk.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.queen.core.mp.base.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.queen.core.mp.base.BaseEntity;
 
 import java.util.Date;
 
