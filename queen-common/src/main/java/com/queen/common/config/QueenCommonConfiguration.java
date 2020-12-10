@@ -1,6 +1,5 @@
 package com.queen.common.config;
 
-
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 
