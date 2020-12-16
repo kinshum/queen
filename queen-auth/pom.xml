@@ -19,19 +19,23 @@
             <artifactId>queen-common</artifactId>
             <version>${queen.project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-user-api</artifactId>
             <version>${queen.project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-core-cloud</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-core-secure</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.queen</groupId>
             <artifactId>queen-core-log</artifactId>
@@ -59,7 +63,6 @@
             <artifactId>easy-captcha</artifactId>
             <version>${captcha.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>

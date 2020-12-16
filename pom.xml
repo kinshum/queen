@@ -12,7 +12,6 @@
     <modules>
         <module>queen-common</module>
         <module>queen-gateway</module>
-        <module>queen-ops</module>
         <module>queen-auth</module>
         <module>queen-service</module>
         <module>queen-service-api</module>
